@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CompositePattern
 {
@@ -11,25 +10,25 @@ namespace CompositePattern
 
         public TodoComposite(string title)
         {
-            this._title = title;            
+            _title = title;            
         }
 
-        public void add(ITodoList todo) {
-            this.SubTodos.Add(todo);
+        public void Add(ITodoList todo) {
+            SubTodos.Add(todo);
         }
 
         public string GetHtml()
         {
-            string html= System.Environment.NewLine+"<h1>";
-            html += this._title;
-            html += "</h1>"+ System.Environment.NewLine + "<ul>" + System.Environment.NewLine;
-            foreach (ITodoList tl in this.SubTodos)
+            string html= Environment.NewLine+"<h1>";
+            html += _title;
+            html += "</h1>"+ Environment.NewLine + "<ul>" + Environment.NewLine;
+            foreach (ITodoList tl in SubTodos)
             {
                 html += "<li>";
                 html += tl.GetHtml();
-                html += "</li>" + System.Environment.NewLine;
+                html += "</li>" + Environment.NewLine;
             }
-            html += "</ul>" + System.Environment.NewLine;
+            html += "</ul>" + Environment.NewLine;
 
             return html;
         }
